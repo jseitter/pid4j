@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Pid4j by ebisi</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Pid4j</h1>
+          <h2>The Pid4j library consists of PID controllers that you can easily use in your project.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ebisi/pid4j/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ebisi/pid4j/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ebisi/pid4j" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a name="welcome-to-pid4j" class="anchor" href="#welcome-to-pid4j"><span class="octicon octicon-link"></span></a>Welcome to Pid4j.</h2>
+
+<p>This library contains different PID controllers (written in Java) that you can easily use in your project. 
+There's an abstraction of the inner workings of the chosen PID controller, so you can easily switch later to another "type" of PID controller.</p>
+
+<h2>
+<a name="whats-a-pid-controller" class="anchor" href="#whats-a-pid-controller"><span class="octicon octicon-link"></span></a>What's a PID controller?</h2>
+
+<p>First of all, what's a PID controller? </p>
+
+<p>Wikipedia defines a PID as follows:</p>
+
+<p>A proportional-integral-derivative controller (PID controller) is a control loop feedback mechanism (controller) widely used in industrial control systems. A PID controller calculates an error value as the difference between a measured process variable and a desired setpoint. The controller attempts to minimize the error by adjusting the process through use of a manipulated variable. The PID controller algorithm involves three separate constant parameters, and is accordingly sometimes called three-term control: the proportional, the integral and derivative values, denoted P, I, and D. Simply put, these values can be interpreted in terms of time: P depends on the present error, I on the accumulation of past errors, and D is a prediction of future errors, based on current rate of change. The weighted sum of these three actions is used to adjust the process via a control element such as the position of a control valve, a damper, or the power supplied to a heating element.</p>
+
+<h2>
+<a name="how-to-use-a-pid-controller-in-your-own-project" class="anchor" href="#how-to-use-a-pid-controller-in-your-own-project"><span class="octicon octicon-link"></span></a>How to use a PID controller in your own project?</h2>
+
+<p>You can easily create a PID controller in your own Java project:</p>
+
+<p>First, include the library, for example via Maven:</p>
+
+<div class="highlight highlight-XML"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.pid4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>pid4j<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<p>Then you can easily create a PID controller:</p>
+
+<div class="highlight highlight-Java"><pre><span class="n">Double</span> <span class="n">kp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">,</span> <span class="n">ki</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">,</span> <span class="n">kd</span> <span class="o">=</span> <span class="mf">0.3</span><span class="o">;</span>
+<span class="n">Pid</span> <span class="n">myPid</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">DefaultPid</span><span class="o">(</span><span class="n">kp</span><span class="o">,</span> <span class="n">ki</span><span class="o">,</span> <span class="n">kd</span><span class="o">);</span>
+<span class="n">myPid</span><span class="o">.</span><span class="na">setSetpoint</span><span class="o">(</span><span class="mf">27.0</span><span class="o">);</span>
+<span class="n">Double</span> <span class="n">output</span> <span class="o">=</span> <span class="n">myPid</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="mf">32.0</span><span class="o">);</span>
+</pre></div>
+
+<h2>
+<a name="tutorials" class="anchor" href="#tutorials"><span class="octicon octicon-link"></span></a>Tutorials</h2>
+        </section>
+
+        <footer>
+          Pid4j is maintained by <a href="https://github.com/ebisi">ebisi</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-52989576-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
