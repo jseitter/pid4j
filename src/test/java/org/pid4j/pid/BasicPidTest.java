@@ -5,12 +5,12 @@ import static junit.framework.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class VeryBasicPidTest {
+public class BasicPidTest {
 	private Pid pid;
 	
 	@Before
 	public void setUp() throws Exception {
-		pid = new VeryBasicPid();
+		pid = new BasicPid();
 		pid.setKpid(5.0, 2.0, 3.0);
 		pid.setOutputLimits(0.0, 255.0);
 	}

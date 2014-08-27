@@ -1,6 +1,6 @@
 package org.pid4j.pid;
 
-public class VeryBasicPid extends AbstractPid implements Pid {
+public class BasicPid extends AbstractPid implements Pid {
 	public Double compute(Double value) {
 		Double error = setPoint - value;
 		
