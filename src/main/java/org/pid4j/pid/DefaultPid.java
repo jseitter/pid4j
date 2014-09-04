@@ -1,6 +1,6 @@
 package org.pid4j.pid;
 
-public class DefaultPid extends AbstractPid implements Pid {
+public class DefaultPid extends AbstractPid {
 	private long lastTime = System.currentTimeMillis();
 	
 	public Double compute(Double value) {
