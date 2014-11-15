@@ -8,6 +8,7 @@ public abstract class AbstractPid {
 	protected Double iTerm = 0.0;
 	protected Double lastInput = 0.0;
 	protected Direction direction = Direction.DIRECT;
+	protected boolean initialized = false;
 	
 	public abstract Double compute(Double value);
 	

@@ -1,43 +1,67 @@
 package org.pid4j.pid;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore
 public class DefaultPidTest {
 	private Pid pid;
+
+	private void testCompute(double input, double expectedOutput) {
+		Double output = pid.compute(input);
+		assertEquals(expectedOutput, output, 0.01);
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Before
 	public void setup() throws Exception {
 		this.pid = new DefaultPid();
-		pid.setKpid(5.0, 2.0, 3.0);
-		pid.setOutputLimits(0.0, 255.0);
+		pid.setOutputLimits(-255.0, 255.0);
+		pid.setSetPoint(34.8);
 	}
 	
 	@Test
-	public void testComputeTemperature() throws InterruptedException {
-		pid.setSetPoint(22.0);
-		
-		Double output = pid.compute(25.0);
-		assertEquals(0.0, output);
-		Thread.sleep(1000);
-		output = pid.compute(24.0);
-		assertEquals(0.0, output);
-		Thread.sleep(1000);
-		output = pid.compute(22.0);
-		assertEquals(6.0, output);
-		Thread.sleep(1000);
-		output = pid.compute(22.0);
-		assertEquals(0.0, output);
-		Thread.sleep(1000);
-		output = pid.compute(18.0);
-		assertEquals(40.0, output);
-		Thread.sleep(1000);
-		output = pid.compute(20.0);
-		assertEquals(16.0, output);
+	public void testP() throws InterruptedException {
+		pid.setKpid(2.0, 0.0, 0.0);
+		testCompute(23.47, 22.66);
+		testCompute(29.4, 10.8);
+		testCompute(38.3, -7);
+		testCompute(34.8, 0);
+	}
+	
+	@Test
+	public void testPI() throws InterruptedException {
+		pid.setKpid(2.0, 5.0, 0.0);
+		((DefaultPid) pid).setSampleTime(10.0); 
+		testCompute(23.47, 23.2265);
+		testCompute(29.4, 11.6365);
+		testCompute(38.3, -6.3385);
+		testCompute(34.8, 0.6615);
 	}
 
+	@Test
+	public void testPID() throws InterruptedException {
+		pid.setKpid(2.0, 5.0, 0.06);
+		((DefaultPid) pid).setSampleTime(10.0); 
+		testCompute(23.47, 23.2265);
+		testCompute(29.4, -23.9435);
+		testCompute(38.3, -59.7385);
+		testCompute(34.8, 21.6615);
+	}
+	
+	@Test
+	public void testPIDReverse() throws InterruptedException {
+		pid.setKpid(2.0, 5.0, 0.06);
+		pid.setDirection(Direction.REVERSE);
+		((DefaultPid) pid).setSampleTime(10.0); 
+		testCompute(23.47, -23.2265);
+		testCompute(29.4, 23.9435);
+		testCompute(38.3, 59.7385);
+		testCompute(34.8, -21.6615);
+	}
 }
