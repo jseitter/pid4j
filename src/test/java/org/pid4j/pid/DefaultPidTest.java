@@ -11,11 +11,6 @@ public class DefaultPidTest {
 	private void testCompute(double input, double expectedOutput) {
 		Double output = pid.compute(input);
 		assertEquals(expectedOutput, output, 0.01);
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Before
