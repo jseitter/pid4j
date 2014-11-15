@@ -1,6 +1,6 @@
 package org.pid4j.pid;
 
-public abstract class AbstractPid {
+public abstract class AbstractPid implements Pid {
 	protected Double kp = 1.0, ki = 1.0, kd = 1.0;
 	protected Double setPoint = 1.0;
 	protected Double output = 0.0;
@@ -38,7 +38,6 @@ public abstract class AbstractPid {
 	}
 	
 	public void setOutputLimits(Double min, Double max) {
-		
 		this.min = min;
 		this.max = max;
 		output = getValueWithinLimits(output);
