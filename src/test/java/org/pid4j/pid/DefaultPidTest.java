@@ -32,7 +32,7 @@ public class DefaultPidTest {
 	@Test
 	public void testPI() throws InterruptedException {
 		pid.setKpid(2.0, 5.0, 0.0);
-		((DefaultPid) pid).setSampleTime(10.0); 
+		((DefaultPid) pid).setSampleTime(10); 
 		testCompute(23.47, 23.2265);
 		testCompute(29.4, 11.6365);
 		testCompute(38.3, -6.3385);
@@ -42,7 +42,7 @@ public class DefaultPidTest {
 	@Test
 	public void testPID() throws InterruptedException {
 		pid.setKpid(2.0, 5.0, 0.06);
-		((DefaultPid) pid).setSampleTime(10.0); 
+		((DefaultPid) pid).setSampleTime(10); 
 		testCompute(23.47, 23.2265);
 		testCompute(29.4, -23.9435);
 		testCompute(38.3, -59.7385);
@@ -53,7 +53,7 @@ public class DefaultPidTest {
 	public void testPIDReverse() throws InterruptedException {
 		pid.setKpid(2.0, 5.0, 0.06);
 		pid.setDirection(Direction.REVERSE);
-		((DefaultPid) pid).setSampleTime(10.0); 
+		((DefaultPid) pid).setSampleTime(10); 
 		testCompute(23.47, -23.2265);
 		testCompute(29.4, 23.9435);
 		testCompute(38.3, 59.7385);

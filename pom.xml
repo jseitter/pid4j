@@ -4,7 +4,7 @@
 	<artifactId>pid</artifactId>
 	<packaging>jar</packaging>
 	<name>Pid4j</name>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<description>Library with Pid controllers that you can easily incorporate in your project</description>
 	<url>http://www.pid4j.org</url>
 	<licenses>
