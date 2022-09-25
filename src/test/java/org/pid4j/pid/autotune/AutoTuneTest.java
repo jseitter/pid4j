@@ -3,13 +3,13 @@ package org.pid4j.pid.autotune;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.pid4j.pid.DefaultPid;
 import org.pid4j.pid.Pid;
 
-@Ignore
+@Disabled
 public class AutoTuneTest {
 	byte autoTuneModeRemember = 2;
 
@@ -29,7 +29,7 @@ public class AutoTuneTest {
 	AutoTune autoTune;
 	Pid pid;
 
-	@Before
+	@BeforeEach
 	public void before() {
 		autoTune = new AutoTune();
 		pid = new DefaultPid();

@@ -1,9 +1,9 @@
 package org.pid4j.pid;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DefaultPidTest {
 	private Pid pid;
@@ -13,7 +13,7 @@ public class DefaultPidTest {
 		assertEquals(expectedOutput, output, 0.01);
 	}
 
-	@Before
+	@BeforeEach
 	public void setup() throws Exception {
 		this.pid = new DefaultPid();
 		pid.setOutputLimits(-255.0, 255.0);

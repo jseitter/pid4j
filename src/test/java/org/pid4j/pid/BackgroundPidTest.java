@@ -1,16 +1,14 @@
 package org.pid4j.pid;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.pid4j.pid.sensor.SensorAndActuatorMock;
 
 public class BackgroundPidTest {
 	private static final int WAIT_MILLISECONDS = 100;
 	private BackgroundPid pid;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		this.pid = new BackgroundPid(10.0, 1.0, 2.0, 3.0, new SensorAndActuatorMock(), new SensorAndActuatorMock(), WAIT_MILLISECONDS);
 	}
