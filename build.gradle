@@ -38,6 +38,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
+	    groupId = "org.pid4j"
             from(components.java)
         }
     }
